@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password)
+        params.permit(:username, :password, :first_name, :last_name, :gender, :phone_number, :email, :age, :image, :flight_hours)
     end
 
     def user_invalid invalid

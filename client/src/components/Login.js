@@ -3,7 +3,7 @@ import { useState, useContext } from 'react';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import {Form} from 'react-bootstrap'
-
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button'
 import FlightLandSharpIcon from '@mui/icons-material/FlightLandSharp';
 import { UserContext } from "../context/user";
@@ -79,7 +79,7 @@ function handleSubmit(e) {
                     Login
                     </Button>
                     </div><br />
-                    <span>Don't have an account? Sign up!</span>
+                    <span>Don't have an account? <Link to='signup'>Sign up!</Link></span>
                 </Form>
 
     </div>

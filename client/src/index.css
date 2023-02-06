@@ -121,7 +121,7 @@
 }
 
 .homepage {
-  height: 85vh;
+  height: 100vh;
   width: 100vw;
   background-color: #FAF7D4;
 }
@@ -133,17 +133,64 @@
 }
 
 .upper_content {
-  padding-top: 5%;
+  padding-top: 4%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
 .content_div {
-  color: white;
-  background-color: blue;
+  color: black;
+  background-color: #76809D;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30vw;
+  height: 35vh; 
+}
+
+.inner_content {
+  text-align: center;
+}
+
+p {
+  font-weight: bolder;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.content_button {
+  background-color: #e0ddb6;
+  margin-left: auto;
+  cursor: pointer;
+  width: fit-content; 
+  height: fit-content;
+  margin-top: 5%;
+}
+
+.discover_button {
+  background-color: #e0ddb6;
+  margin: auto;
+  font-size: large;
+  cursor: pointer;
+  width: fit-content; 
+  height: fit-content;
+  margin-top: 7%;
+}
+
+.lower_content {
   display: flex;
   justify-content: center;
+  margin: auto;
+  background-color: #76809D;
+  height: 20vh;
   width: 40vw;
-  height: 35vh;
+  margin-top: 6%;
+}
+
+.discover_airport_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
 }

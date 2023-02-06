@@ -6,4 +6,6 @@ class User < ApplicationRecord
     validates_presence_of :first_name, :last_name, :gender, :phone_number, :email, :age, :flight_hours
     validates :username, :email, :phone_number, uniqueness: true
     validates :flight_hours, :age, numericality: true
+
+
 end

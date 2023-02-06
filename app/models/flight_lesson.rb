@@ -12,4 +12,8 @@ class FlightLesson < ApplicationRecord
       errors.add(:end_time, "End time must be later than start time.")
     end
   end
+
+  def flight_duration
+    self.end_time.to_i - self.start_time.to_i
+  end
 end

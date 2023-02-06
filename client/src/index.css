@@ -1,3 +1,149 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+
+}
+
+.login_page {
+  background-image: url('https://www.aopa.org/-/media/Images/AOPA-Main/News-and-Media/2020/March/0325_flight_school_practices.jpg?mw=880&mh=495&as=1&hash=358CA706D88C01F055EDF9CFD121DC97');
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  /* margin: 50%, 50%;
+  text-align: center;  */
+}
+
+.login_title {
+  font-size: 5rem;
+  text-align: center;
+
+}
+
+.login_container {
+  /* display: flex;
+  position: absolute;
+  justify-content: center;
+  background-color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  width: 58vw;
+  height: 70vh;
+  /* z-index: 2; 
+  text-align: center; */
+  background-color: rgb(255, 255, 255); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.8); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 70vw;
+  height: 48vh;
+  padding: 20px;
+  text-align: center;
+  filter: blur(0px);
+  color: Black;
+  backdrop-filter: blur(4px);
+}
+
+.errors {
+  justify-content: center;
+  display: flex;
+  padding-top: 4%;
+}
+
+.login_username {
+  display: flex;
+  justify-content: center;
+  padding-top: 15%;
+  /* margin: 0px, auto; */
+  /* font-size: x-large; */
+}
+
+.login_password {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+  /* font-size: x-large; */
+}
+
+.login_button {
+  margin-top: 3%;
+}
+
 .testing {
   text-align: center;
+}
+
+.logout {
+  margin-right: 20px;
+}
+
+.header_container {
+  /* background-color: bisque; */
+  background-image: url('./img/imageedit_1_9064254737.jpg');
+  background-size: cover;
+  height: 15vh;
+  /* height: 125px;
+  width: 100vw; */
+  /* resize: both; */
+  /* align-items: center; */
+}
+
+.header {
+  padding-top: 25px;
+  display: flex;
+  justify-content: right;
+  margin-right: -1.3%;
+  
+}
+
+.nav {
+  display: flex;
+  justify-content: right;
+  margin-right: 15px;
+  padding-top: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.title {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 6.5%;
+  
+}
+
+.homepage {
+  height: 85vh;
+  width: 100vw;
+  background-color: #FAF7D4;
+}
+
+.homepage_title {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.upper_content {
+  padding-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.content_div {
+  color: white;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  width: 40vw;
+  height: 35vh;
 }

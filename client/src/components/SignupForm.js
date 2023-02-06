@@ -61,7 +61,7 @@ function SignupForm() {
           <Form className='login_container' onSubmit={handleSubmit}>
           {/* <div className='errors'> */}
               {errors ? errors.map((e) => 
-                  <Alert variant="filled" severity="error" >{e}</Alert>) : null}
+                  <Alert severity="error" >{e}</Alert>) : null}
           {/* </div> */}
               <div className='login_password'>
                   <Form.Group className="mb-3" controlId="formBasicFirstName">
@@ -94,6 +94,39 @@ function SignupForm() {
                           type="text"
                           name="username"
                           placeholder="Username" />
+                  </Form.Group>
+              </div>
+              <div className='login_password'>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>Password: </Form.Label>
+                      <Form.Control
+                          onChange={handleChange}
+                          value={userData.password}
+                          type="password"
+                          name="password"
+                          placeholder="Password" />
+                  </Form.Group>
+              </div>
+              <div className='login_password'>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>Password: </Form.Label>
+                      <Form.Control
+                          onChange={handleChange}
+                          value={userData.password}
+                          type="password"
+                          name="password"
+                          placeholder="Password" />
+                  </Form.Group>
+              </div>
+              <div className='login_password'>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <Form.Label>Password: </Form.Label>
+                      <Form.Control
+                          onChange={handleChange}
+                          value={userData.password}
+                          type="password"
+                          name="password"
+                          placeholder="Password" />
                   </Form.Group>
               </div>
               <div className='login_password'>

@@ -45,7 +45,7 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 70vw;
-  height: 48vh;
+  height: fit-content;
   padding: 20px;
   text-align: center;
   filter: blur(0px);

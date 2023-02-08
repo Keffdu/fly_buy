@@ -1,8 +1,8 @@
 import React from 'react'
 import { UserContext } from "../context/user";
 import { useContext } from 'react';
-import { Box, Container } from '@mui/system';
-import { Button, Grid, Paper } from '@mui/material';
+import { Link } from 'react-router-dom';
+
 
 function Homepage() {
 
@@ -22,20 +22,20 @@ function Homepage() {
             <div className='content_div'>
                 <div  className='inner_content'>
                     <p>{user.first_name}, you have {user.flight_lessons.length} upcoming flights booked.</p>
-                    <button className='content_button' onClick={(e) => console.log("viewing flights")}>View Flights</button>
+                    <Link to='/flights'><button className='content_button'>View Flights</button></Link>
                 </div>
             </div>
             <div className='content_div'>
                 <div  className='inner_content'>
                     <p>You’ve flown a total of {user.flight_hours} hours so far, only {user.flight_hours_left} hours left to go!</p>
-                    <button className='content_button' onClick={(e) => console.log("scheduling flights")}>Schedule Flights</button>
+                    <Link to='/airports'><button className='content_button'>Schedule Flights</button></Link>
                 </div>
             </div>
         </div>
         <div className='lower_content'>
             <div className='discover_airport_div'>
-                <h2>Discover Airports</h2>
-                <button className='discover_button' onClick={(e) => console.log("going to airports")}>Go</button>
+                <h2 className='discover_airport_title'>Discover Airports</h2>
+                <Link className='discover_button' to='airports'><button className='discover_button'>Go</button></Link>
             </div>
         </div>
     </div>

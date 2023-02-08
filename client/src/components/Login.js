@@ -10,10 +10,11 @@ import { UserContext } from "../context/user";
 
 
 
-function Login({errors, setErrors}){
+function Login(){
 
     const { user, setUser } = useContext(UserContext)
 
+    const[errors, setErrors] = useState(null)
     const[loginObj, setLoginObj] = useState({
         username: "",
         password: ""
@@ -79,7 +80,7 @@ function handleSubmit(e) {
                     Login
                     </Button>
                     </div><br />
-                    <span>Don't have an account? <Link to='signup'>Sign up!</Link></span>
+                    <span className='account_link'>Don't have an account? <Link to='signup'>Sign up!</Link></span>
                 </Form>
 
     </div>

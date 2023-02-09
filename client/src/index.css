@@ -304,14 +304,18 @@ p {
 }
 
 .airport_image {
+  min-width: 400px;
   max-width: 400px;
-  max-height: 200px;
+  min-height: 250px;
+  max-height: 250px;
 }
 
-/* .airport_detail_image {
-  max-width: 400px;
-  max-height: 200px;
-} */
+.airport_detail_image {
+  min-width: 500px;
+  max-width: 500px;
+  min-height: 400px;
+  max-height: 400px;
+}
 
 .airport_card {
   border-radius: 22px;
@@ -360,3 +364,194 @@ button {
 .airport_details {
   font-size: 1rem;
 }
+
+.airport_upper-cont {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  margin-bottom: 20px;
+}
+
+.instructor_image {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  max-width: 200px;
+  max-height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+.airport_upper_left {
+  width: fit-content;
+}
+
+.airport_upper_right {
+  width: 55vw;
+  background-color: #76809D;
+}
+
+.instructor_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: fit-content;
+}
+
+.instructor_container {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.meet_instructors {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.instructor_name {
+  margin-top: 5px;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.instructor_details {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.plane_name {
+  margin-top: 10px;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.plane_image {
+  min-height: 450px;
+  min-width: 450px;
+  max-width: 450px;
+  max-height: 450px;
+  padding: 15px;
+  padding-bottom: 30pxd;
+}
+
+.plane_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  width: 75vw;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #76809D;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aircraft_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  /* margin: auto; */
+  
+}
+
+.plane_info_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  text-align: center;
+  width: 30vw;
+}
+
+.planes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.plane_details {
+  /* text-align: center; */
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.plane_description {
+  /* text-align: center; */
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.plane_button {
+  text-align: center;
+  align-content: center;
+  margin-top: 30px;
+}
+
+.flight_lesson_homepage {
+  height: 85vh;
+  width: 100vw;
+  background-color: #FAF7D4;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+}
+
+.form_container {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #76809D;
+  height: 80vh;
+  width: 40vw;
+  margin-bottom: 35px;
+}
+
+.fl_title {
+  padding-bottom: 10px;
+}
+
+.input_div {
+  width: 250px;
+  margin-top: 15px;
+  background-color: #52596e76;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.form_font {
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+.button_div {
+  display: flex;
+  justify-content: space-between;
+  
+}
+

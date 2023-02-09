@@ -15,7 +15,7 @@ import FlightTakeoffSharpIcon from '@mui/icons-material/FlightTakeoffSharp';
 import Button from '@mui/material/Button'
 import { UserContext } from '../context/user';
 import { useContext } from 'react';
-
+import {useHistory} from 'react-router-dom'
 
 function FlightInfoContainer() {
 
@@ -23,7 +23,7 @@ function FlightInfoContainer() {
   const open = Boolean(anchorEl);
 
   const { user, setUser } = useContext(UserContext)
-
+  const history = useHistory()
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -40,6 +40,7 @@ function FlightInfoContainer() {
         (r) => {
             if (r.ok) {
                 setUser(null)
+                history.push("/")
             }
         })
     }

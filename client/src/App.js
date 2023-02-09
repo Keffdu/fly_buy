@@ -1,7 +1,6 @@
 // import Yogi from './Yogi.jpeg'
 import { useState, useContext } from "react";
 import { UserContext } from "./context/user";
-import { useHistory } from "react-router-dom";
 import FlightInfoContainer from "./components/FlightInfoContainer";
 import Login from "./components/Login";
 import Header from "./components/Header";
@@ -11,15 +10,15 @@ import { Switch, Route } from "react-router-dom"
 import SignupForm from "./components/SignupForm";
 import AirportList from "./components/AirportList";
 import AirportDetails from "./components/AirportDetails";
-
+import FlightLessonForm from "./components/FlightLessonForm";
 
 function App() {
 
-  let history = useHistory()
 
  
 
   const { user } = useContext(UserContext);
+  const [ flightLessonData, setFlightLessonData ] = useState({})
 
 // console.log(user)
 // console.log(errors)
@@ -41,12 +40,17 @@ function App() {
             </Route>
             <Route path='/airports/:id'>
               <AirportDetails
+                getData={setFlightLessonData}
+              />
+            </Route>
+            <Route path='/flight_lesson/plane/:id'>
+              <FlightLessonForm
               />
             </Route>
           </Switch>
       </div>
     )
-  }
+  } else {
   return (
     <>
       <Switch>
@@ -60,7 +64,7 @@ function App() {
         </Route>
       </Switch>
     </>
-  );
+  )};
 }
 
 export default App;

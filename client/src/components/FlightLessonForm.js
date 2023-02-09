@@ -1,16 +1,16 @@
 import React from 'react'
-import { useParams} from 'react-router-dom';
+import { useParams, useHistory} from 'react-router-dom';
 import { useState, useEffect, useContext  } from 'react';
 import { UserContext } from '../context/user';
-import { useNavigate } from 'react-router-dom';
+import { formatPhoneNumber } from 'react-phone-number-input';
 
 
 function FlightLessonForm() {
 
     const { id } = useParams()
     const { user } = useContext(UserContext);
-    const navigate = useNavigate()
     let history = useHistory()
+    const[errors, setErrors] = useState(null)
     const [lessonData, setLessonData] = useState(null)
     const [formData, setFormData] = useState({
         date: "",
@@ -36,13 +36,39 @@ function FlightLessonForm() {
 
         function handleSubmit(e) {
             e.preventDefault()
+            setErrors([])
             const flightLesson = {
-
+                date: formData.date,
+                start_time: parseInt(formData.start_time),
+                end_time: parseInt(formData.end_time),
+                airport: lessonData.airport.name,
+                user_id: user.id,
+                aircraft_id: lessonData.id,
             }
+            console.log(flightLesson)
+            fetch('/flight_lessons', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(flightLesson),
+            }).then((r) => {
+                if (r.ok) {
+                    r.json().then((newLesson) => console.log(newLesson))
+                    history.push("/")
+                } else {
+                    r.json().then((err) => (console.log(err)))
+                }
+            })
+            setFormData({
+                date: "",
+                start_time: "08:00",
+                end_time: "10:00",
+            })
         }
 
         function cancelLesson() {
-            navigate(-1)
+            history.push(`/airports/${lessonData.airport.id}`)
         }
 
     if (!lessonData) {
@@ -58,7 +84,7 @@ function FlightLessonForm() {
             <h1 className='homepage_title'>Flight Lesson</h1>
         </div>
         <div className='form_container'>
-            <form onSubmit={""}>
+            <form onSubmit={handleSubmit}>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>
                     <label className='form_font'>Airport: </label>
@@ -89,11 +115,10 @@ function FlightLessonForm() {
                     <input 
                         style={{width: "115px"}}
                         type='time'
-                        min="8:00"
+                        min="08:00"
                         max="21:00"
                         name='start_time'
-                        // onChange={handleChange}
-                        onChange={(e) => console.log(e.target.value)}
+                        onChange={handleChange}
                         value={formData.start_time}
                     />
                 </div>
@@ -104,7 +129,7 @@ function FlightLessonForm() {
                     <input
                         style={{width: "115px"}}
                         type='time'
-                        min="8:00"
+                        min="08:00"
                         max="21:00"
                         name='end_time'
                         onChange={handleChange}

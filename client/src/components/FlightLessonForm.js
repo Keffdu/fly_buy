@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, useHistory} from 'react-router-dom';
 import { useState, useEffect, useContext  } from 'react';
 import { UserContext } from '../context/user';
-import { formatPhoneNumber } from 'react-phone-number-input';
+import Alert from '@mui/material/Alert';
 
 
 function FlightLessonForm() {
@@ -39,8 +39,8 @@ function FlightLessonForm() {
             setErrors([])
             const flightLesson = {
                 date: formData.date,
-                start_time: parseInt(formData.start_time),
-                end_time: parseInt(formData.end_time),
+                start_time: formData.start_time,
+                end_time: formData.end_time,
                 airport: lessonData.airport.name,
                 user_id: user.id,
                 aircraft_id: lessonData.id,
@@ -54,10 +54,11 @@ function FlightLessonForm() {
                 body: JSON.stringify(flightLesson),
             }).then((r) => {
                 if (r.ok) {
-                    r.json().then((newLesson) => console.log(newLesson))
-                    history.push("/")
+                    r.json().then(() => {
+                        alert("Your flight has been successfully booked!")
+                        history.push("/")})
                 } else {
-                    r.json().then((err) => (console.log(err)))
+                    r.json().then((err) => (setErrors(err.errors)))
                 }
             })
             setFormData({
@@ -68,7 +69,7 @@ function FlightLessonForm() {
         }
 
         function cancelLesson() {
-            history.push(`/airports/${lessonData.airport.id}`)
+            history.push(`/airports/`)
         }
 
     if (!lessonData) {
@@ -78,10 +79,15 @@ function FlightLessonForm() {
             </div>
         )
     } else {
+        console.log(lessonData)
   return (
     <div className='flight_lesson_homepage'>
         <div className='fl_title'>
-            <h1 className='homepage_title'>Flight Lesson</h1>
+            <h1 className='fl_title'>Flight Lesson</h1>
+        </div>
+        <div className='flight_lesson_errors'>
+              {errors ? errors.map((e) => 
+                  <Alert style={{marginRight: "10px"}} key={e} severity="error" variant='filled'>{e}</Alert>) : null}
         </div>
         <div className='form_container'>
             <form onSubmit={handleSubmit}>
@@ -96,6 +102,12 @@ function FlightLessonForm() {
                     <label className='form_font'>Aircraft: </label>
                     </div>
                     <p className='form_font'>{lessonData.full_plane_name}</p>
+                </div>
+                <div className='input_div'>
+                    <div style={{paddingBottom: "5px"}}>
+                    <label className='form_font'>Instructor: </label>
+                    </div>
+                    <p className='form_font'>{lessonData.instructor.full_name}</p>
                 </div>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>

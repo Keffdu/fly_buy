@@ -33,7 +33,7 @@ function SignupForm() {
         setUserInfo({ ...userInfo, [name]: value })
     }
 
-    console.log(phone)
+    // console.log(phone)
     function handleSubmit(e) {
         e.preventDefault()
         const userObj = {
@@ -66,7 +66,7 @@ function SignupForm() {
 
     const ageTextBox = {
         height: "25px",
-        width: "50px"
+        width: "150px"
     }
 
     const textBox = {
@@ -180,7 +180,7 @@ function SignupForm() {
               </div>
               <div className='sign_up_password'>
                   <Form.Group  controlId="formBasicAge">
-                      <Form.Label>Age: </Form.Label>
+                      <Form.Label>Age: </Form.Label><br />
                       <Form.Control
                           onChange={handleChange}
                           value={userInfo.age}
@@ -194,7 +194,7 @@ function SignupForm() {
               </div>
               <div className='sign_up_password'>
                   <Form.Group  controlId="formBasicFlightHours">
-                      <Form.Label>Flight Hours: </Form.Label>
+                      <Form.Label>Flight Hours: </Form.Label><br />
                       <Form.Control
                           onChange={handleChange}
                           value={userInfo.flight_hours}

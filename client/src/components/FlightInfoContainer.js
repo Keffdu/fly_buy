@@ -4,18 +4,14 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
 import FlightTakeoffSharpIcon from '@mui/icons-material/FlightTakeoffSharp';
-import Button from '@mui/material/Button'
 import { UserContext } from '../context/user';
 import { useContext } from 'react';
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
+
 
 function FlightInfoContainer() {
 
@@ -50,7 +46,7 @@ function FlightInfoContainer() {
   return (
     <div className='nav'>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-        <Typography sx={{ minWidth: 100 }}>Flights</Typography>
+      <Link to='/flights'><Typography sx={{ minWidth: 100 }}>Flights</Typography></Link>
         <Typography sx={{ minWidth: 100 }}>Log Book</Typography>
         <Tooltip title="Account">
           <IconButton

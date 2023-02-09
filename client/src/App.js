@@ -11,6 +11,7 @@ import SignupForm from "./components/SignupForm";
 import AirportList from "./components/AirportList";
 import AirportDetails from "./components/AirportDetails";
 import FlightLessonForm from "./components/FlightLessonForm";
+import FlightLessonList from "./components/FlightLessonList";
 
 function App() {
 
@@ -45,6 +46,10 @@ function App() {
             </Route>
             <Route path='/flight_lesson/plane/:id'>
               <FlightLessonForm
+              />
+            </Route>
+            <Route path='/flights'>
+              <FlightLessonList
               />
             </Route>
           </Switch>

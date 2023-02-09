@@ -9,11 +9,11 @@ function Homepage() {
     const { user } = useContext(UserContext)
     const flights = user.flight_lessons
 
-   const completedFlights = flights.filter((fl) => {
+   const upcomingFlights = flights.filter((fl) => {
     return (
     fl.completed === false)})
 
-   console.log(completedFlights)
+//    console.log(upcomingFlights.length)
 
   return (
     <div className='homepage'>
@@ -21,7 +21,8 @@ function Homepage() {
         <div className='upper_content'>
             <div className='content_div'>
                 <div  className='inner_content'>
-                    <p>{user.first_name}, you have {user.flight_lessons.length} upcoming flights booked.</p>
+                    {/* ADD DIFFERENT RENDER IF THERE ARE NO SCHEDULED FLIGHTS */}
+                    <p>{user.first_name}, you have {upcomingFlights.length} upcoming flights booked.</p>
                     <Link to='/flights'><button className='content_button'>View Flights</button></Link>
                 </div>
             </div>

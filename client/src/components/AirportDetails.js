@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import InstructorCard from './InstructorCard';
 import AircraftCard from './AircraftCard'
 
-function AirportDetails({ getData }) {
+function AirportDetails() {
 
     const { id } = useParams()
     const [airportDetails, setAirportDetails] = useState(null)
@@ -41,7 +41,6 @@ function AirportDetails({ getData }) {
                     key={aircraft.id}
                     aircraft={aircraft}
                     airport={airportDetails}
-                    getData={getData}
                 />
             )
         })

@@ -12,6 +12,7 @@ import AirportList from "./components/AirportList";
 import AirportDetails from "./components/AirportDetails";
 import FlightLessonForm from "./components/FlightLessonForm";
 import FlightLessonList from "./components/FlightLessonList";
+import EditFlightLesson from "./components/EditFlightLesson";
 
 function App() {
 
@@ -19,7 +20,6 @@ function App() {
  
 
   const { user } = useContext(UserContext);
-  const [ flightLessonData, setFlightLessonData ] = useState({})
 
 // console.log(user)
 // console.log(errors)
@@ -41,7 +41,6 @@ function App() {
             </Route>
             <Route path='/airports/:id'>
               <AirportDetails
-                getData={setFlightLessonData}
               />
             </Route>
             <Route path='/flight_lesson/plane/:id'>
@@ -50,6 +49,10 @@ function App() {
             </Route>
             <Route path='/flights'>
               <FlightLessonList
+              />
+            </Route>
+            <Route path='/flight_lesson/edit/:id'>
+              <EditFlightLesson
               />
             </Route>
           </Switch>

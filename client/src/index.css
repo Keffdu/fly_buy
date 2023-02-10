@@ -101,6 +101,9 @@
   justify-content: center;
   display: flex;
   padding-top: 4%;
+  width: 71%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sign_up_errors {
@@ -196,7 +199,7 @@ a {
 }
 
 .homepage {
-  height: 85vh;
+  height: 100vh;
   width: 100vw;
   background-color: #FAF7D4;
 }
@@ -604,11 +607,26 @@ button {
   display: flex;
   justify-content: center;
   justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.completed_button_div {
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  /* margin-top: 10px; */
 }
 
 .lesson_button {
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   width: 130px;
+  height: 20px;
+}
+
+.completed_button {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 150px;
   height: 20px;
 }

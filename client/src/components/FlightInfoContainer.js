@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import FlightTakeoffSharpIcon from '@mui/icons-material/FlightTakeoffSharp';
-import { UserContext } from '../context/user';
+import { UserContext } from '../user';
 import { useContext } from 'react';
 import {useHistory, Link} from 'react-router-dom'
 

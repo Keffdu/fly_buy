@@ -6,14 +6,14 @@ import FlightLessonCard from './FlightLessonCard'
 function FlightLessonList() {
 
   const { user } = useContext(UserContext)
-  const [currentLessons, setCurrentLessons] = useState([])
+  // const [currentLessons, setCurrentLessons] = useState([])
 
   
   console.log(user)
 
-  setCurrentLessons(user.flight_lessons)
+  // setCurrentLessons(user.flight_lessons)
 
-  const upcomingFlights = currentLessons.filter((fl) => {
+  const upcomingFlights = user.flight_lessons.filter((fl) => {
    return (
    fl.completed === false)})
 
@@ -21,7 +21,7 @@ function FlightLessonList() {
     return (
       <FlightLessonCard 
         key={flight.id}
-        flight={flight}
+        flightLesson={flight}
         
       />
     )

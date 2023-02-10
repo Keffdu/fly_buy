@@ -1,92 +1,68 @@
 import React from 'react'
-import { useParams, useHistory} from 'react-router-dom';
-import { useState, useEffect, useContext  } from 'react';
-import { UserContext } from '../context/user';
+import { UserContext } from '../context/user'
+import { useContext, useState } from 'react'
+import { useParams, useHistory } from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 
-
-function FlightLessonForm() {
+function EditFlightLesson() {
 
     const { id } = useParams()
-    const { user, setUser } = useContext(UserContext);
-    let history = useHistory()
-    const[errors, setErrors] = useState(null)
-    const [lessonData, setLessonData] = useState(null)
-    const [formData, setFormData] = useState({
-        date: "",
-        start_time: "08:00",
-        end_time: "10:00",
+    const { user, setUser} = useContext(UserContext)
+    const history = useHistory()
+    const [ errors, setErrors ] = useState(null)
 
+    const flightLesson = user.flight_lessons.find(flights => flights.id == id)
 
-
+    const [ updatedFlight, setUpdatedFlight ] = useState({
+        date: flightLesson.date,
+        start_time: flightLesson.start_time,
+        end_time: flightLesson.end_time
     })
 
-    useEffect(() => {
-        fetch(`/aircrafts/${id}`)
-        .then((r) => r.json()
-        .then((lessonInfo) => {
-            setLessonData(lessonInfo)}))
-        }, [id])
+    console.log(flightLesson)
 
-        function handleChange(e) {
-            const name = e.target.name
-            const value = e.target.value
-            setFormData({ ...formData, [name]: value })
-        }
-
-        function handleSubmit(e) {
-            e.preventDefault()
-            setErrors([])
-            const flightLesson = {
-                date: formData.date,
-                start_time: formData.start_time,
-                end_time: formData.end_time,
-                airport: lessonData.airport.name,
-                user_id: user.id,
-                aircraft_id: lessonData.id,
+    function handleSubmit(e) {
+        e.preventDefault()
+        setErrors([])
+        console.log(updatedFlight)
+        fetch(`/flight_lessons/${flightLesson.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedFlight),
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then((updatedLesson) => {
+                    console.log(updatedLesson)
+                    const updatedFlightLessons = user.flight_lessons.map((fl) => fl.id === flightLesson.id ? updatedLesson : fl)
+                    const updatedUser = {...user, flight_lessons: updatedFlightLessons}
+                    // let updatedFlightLessons = [...user.flight_lessons, newLesson]
+                    setUser(updatedUser)
+                    alert("Your flight has been updated")
+                    history.push("/flights")
+                })
+            } else {
+                r.json().then((err) => (setErrors(err.errors)))
             }
-            // console.log(flightLesson)
+        })
+    }
 
-            fetch('/flight_lessons', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(flightLesson),
-            }).then((r) => {
-                if (r.ok) {
-                    r.json().then((newLesson) => {
-                        let updatedFlightLessons = [...user.flight_lessons, newLesson]
-                        setUser({...user, flight_lessons: updatedFlightLessons})
-                        alert("Your flight has been successfully booked!")
-                        history.push("/flights")})
-                } else {
-                    r.json().then((err) => (setErrors(err.errors)))
-                }
-            })
-            setFormData({
-                date: "",
-                start_time: "08:00",
-                end_time: "10:00",
-            })
-        }
+    function handleChange(e) {
+        const name = e.target.name
+        const value = e.target.value
+        setUpdatedFlight({ ...updatedFlight, [name]: value })
+    }
 
-        function cancelLesson() {
-            history.push(`/airports/`)
-        }
+    function cancelEdit() {
+        history.push(`/flights`)
+    }
 
-    if (!lessonData) {
-        return(
-            <div className='homepage'>
-                <h2>Loading...</h2>
-            </div>
-        )
-    } else {
-        console.log(lessonData)
+
   return (
-    <div className='flight_lesson_homepage'>
+<div className='flight_lesson_homepage'>
         <div className='fl_title'>
-            <h1 className='fl_title'>Flight Lesson</h1>
+            <h1 className='fl_title'>Edit Flight Lesson</h1>
         </div>
         <div className='flight_lesson_errors'>
               {errors ? errors.map((e) => 
@@ -98,19 +74,19 @@ function FlightLessonForm() {
                     <div style={{paddingBottom: "5px"}}>
                     <label className='form_font'>Airport: </label>
                     </div>
-                    <p className='form_font'>{lessonData.airport.name}</p>
+                    <p className='form_font'>{flightLesson.airport}</p>
                 </div>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>
                     <label className='form_font'>Aircraft: </label>
                     </div>
-                    <p className='form_font'>{lessonData.full_plane_name}</p>
+                    <p className='form_font'>{flightLesson.fl_aircraft}</p>
                 </div>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>
                     <label className='form_font'>Instructor: </label>
                     </div>
-                    <p className='form_font'>{lessonData.instructor.full_name}</p>
+                    <p className='form_font'>{flightLesson.fl_instructor}</p>
                 </div>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>
@@ -120,7 +96,7 @@ function FlightLessonForm() {
                         type='date'
                         name='date'
                         onChange={handleChange}
-                        value={formData.date}
+                        value={updatedFlight.date}
                         />
                 </div>
                 <div className='input_div'>
@@ -135,7 +111,7 @@ function FlightLessonForm() {
                         step="3600"
                         name='start_time'
                         onChange={handleChange}
-                        value={formData.start_time}
+                        value={updatedFlight.start_time}
                     />
                 </div>
                 <div className='input_div'>
@@ -150,29 +126,29 @@ function FlightLessonForm() {
                         step="3600"
                         name='end_time'
                         onChange={handleChange}
-                        value={formData.end_time}
+                        value={updatedFlight.end_time}
                     />
                 </div>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>
                     <label className='form_font'>Hourly Rate: </label>
                     </div>
-                    <p className='form_font'>${lessonData.hourly_rate}/hour</p>
+                    <p className='form_font'>${flightLesson.fl_hourly}/hour</p>
                 </div>
                 <div className='input_div'>
                     <div style={{paddingBottom: "5px"}}>
                     <label className='form_font'>Estimated Cost: </label>
                     </div>
-                    <p className='form_font'>${(parseInt(formData.end_time) - parseInt(formData.start_time)) * lessonData.hourly_rate}</p>
+                    <p className='form_font'>${(parseInt(updatedFlight.end_time) - parseInt(updatedFlight.start_time)) * flightLesson.fl_hourly}</p>
                 </div>
                 <div className='button_div'>
-                    <button type='button' onClick={cancelLesson} style={{ width: "100px", fontSize: "1.3rem", marginBottom: "15px"}}>Cancel</button>
+                    <button type='button' onClick={cancelEdit} style={{ width: "100px", fontSize: "1.3rem", marginBottom: "15px"}}>Cancel</button>
                     <button type="submit" style={{ width: "100px", fontSize: "1.3rem", marginBottom: "15px"}}>Confirm</button>
                 </div>
             </form>
         </div>
     </div>
-  )}
+  )
 }
 
-export default FlightLessonForm
+export default EditFlightLesson

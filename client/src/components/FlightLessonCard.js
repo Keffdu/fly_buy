@@ -1,38 +1,54 @@
 import React from 'react'
+import { UserContext } from '../context/user'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
-function FlightLessonCard({ flight }) {
+function FlightLessonCard({ flightLesson }) {
 
+    const { user , setUser } = useContext(UserContext)
 
-    console.log(flight)
+    // console.log(flightLesson)
 
-    function cancelFlight() {
-        fetch(`/flights/${flight.id}`)
-        
-    }
+function cancelFlight() {
+        fetch(`/flight_lessons/${flightLesson.id}`, {
+        method: "DELETE",
+    }).then((r) => {
+        if (r.ok) {
+            let updatedFlightLessons = user.flight_lessons.filter((lesson) => flightLesson.id !== lesson.id)
+            setUser({...user, flight_lessons: updatedFlightLessons})
+        } else {
+            r.json().then((err) => (console.log(err.errors)))
+        }
+    })
+}
+
 
   return (
     <div className='lesson_container'>
         <div className='lesson_details'>
-            <h1>Date: {flight.date}</h1>
+            <h1>Date: {flightLesson.date}</h1>
         </div>
         <div className='lesson_details'>
-            <h1>Location: {flight.airport}</h1>
+            <h1>Location: {flightLesson.airport}</h1>
         </div>
         <div className='lesson_details'>
-            <h1>Instructor: {flight.fl_instructor}</h1>
+            <h1>Instructor: {flightLesson.fl_instructor}</h1>
         </div>
         <div className='lesson_details'>
-            <h1>Airplane: {flight.fl_aircraft}</h1>
+            <h1>Airplane: {flightLesson.fl_aircraft}</h1>
         </div>
         <div className='lesson_details'>
-            <h1>Start Time: {flight.start_time}</h1>
+            <h1>Start Time: {flightLesson.start_time}</h1>
         </div>
         <div className='lesson_details'>
-            <h1>End Time: {flight.end_time}</h1>
+            <h1>End Time: {flightLesson.end_time}</h1>
         </div>
         <div className='lesson_buttons'>
             <button onClick={cancelFlight} className='lesson_button'>Cancel Flight</button>
-            <button className='lesson_button'>Edit Flight</button>
+            <Link to={`/flight_lesson/edit/${flightLesson.id}`}><button className='lesson_button'>Edit Flight</button></Link>
+        </div>
+        <div className='completed_button_div'>
+            <button className='completed_button'>Complete Flight</button>
         </div>
     </div>
   )

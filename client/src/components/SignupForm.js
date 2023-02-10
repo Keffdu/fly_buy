@@ -1,16 +1,17 @@
 import React from 'react'
-import Container from 'react-bootstrap/Container';
 import { useState, useContext } from 'react';
 import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
+import { useHistory } from 'react-router-dom';
 import { Form } from 'react-bootstrap'
 import Input from 'react-phone-number-input/input'
 import Button from '@mui/material/Button'
 import FlightTakeoffSharpIcon from '@mui/icons-material/FlightTakeoffSharp';
 import { UserContext } from "../context/user";
-import { Switch, Route } from 'react-router-dom'
+
 
 function SignupForm() {
+
+    const history = useHistory()
 
     const { user, setUser } = useContext(UserContext)
     const [errors, setErrors] = useState(null)
@@ -57,7 +58,9 @@ function SignupForm() {
             body: JSON.stringify(userObj),
         }).then((res) => {
             if (res.ok) {
-                res.json().then((userData) => setUser(userData))
+                res.json().then((userData) => {
+                    setUser(userData)})
+                    history.push('/')
             } else {
                 res.json().then((err) => setErrors(err.errors))
             }

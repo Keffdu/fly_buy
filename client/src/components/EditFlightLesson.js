@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserContext } from '../user'
+import { UserContext } from '../context/user'
 import { useContext, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import Alert from '@mui/material/Alert';

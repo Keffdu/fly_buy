@@ -47,7 +47,7 @@ function FlightInfoContainer() {
     <div className='nav'>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
       <Link to='/flights'><Typography sx={{ minWidth: 100 }}>Flights</Typography></Link>
-        <Typography sx={{ minWidth: 100 }}>Log Book</Typography>
+        <Link to='/log_book'><Typography sx={{ minWidth: 100 }}>Log Book</Typography></Link>
         <Tooltip title="Account">
           <IconButton
             onClick={handleClick}

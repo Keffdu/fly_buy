@@ -13,6 +13,7 @@ import AirportDetails from "./components/AirportDetails";
 import FlightLessonForm from "./components/FlightLessonForm";
 import FlightLessonList from "./components/FlightLessonList";
 import EditFlightLesson from "./components/EditFlightLesson";
+import FlightLogBook from "./components/FlightLogBook";
 
 function App() {
 
@@ -53,6 +54,10 @@ function App() {
             </Route>
             <Route path='/flight_lesson/edit/:id'>
               <EditFlightLesson
+              />
+            </Route>
+            <Route path='/log_book'>
+              <FlightLogBook
               />
             </Route>
           </Switch>

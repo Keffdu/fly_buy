@@ -3,6 +3,7 @@ class AircraftSerializer < ActiveModel::Serializer
 
   belongs_to :airport
   has_one :instructor
+  has_many :flight_lessons
 
 
   def full_plane_name

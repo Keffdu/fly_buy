@@ -14,6 +14,7 @@ import FlightLessonForm from "./components/FlightLessonForm";
 import FlightLessonList from "./components/FlightLessonList";
 import EditFlightLesson from "./components/EditFlightLesson";
 import FlightLogBook from "./components/FlightLogBook";
+import AccountInfo from "./components/AccountInfo";
 
 function App() {
 
@@ -58,6 +59,10 @@ function App() {
             </Route>
             <Route path='/log_book'>
               <FlightLogBook
+              />
+            </Route>
+            <Route path='/profile'>
+              <AccountInfo
               />
             </Route>
           </Switch>

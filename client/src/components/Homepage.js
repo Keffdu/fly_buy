@@ -36,7 +36,7 @@ function Homepage() {
         <div className='lower_content'>
             <div className='discover_airport_div'>
                 <h2 className='discover_airport_title'>Discover Airports</h2>
-                <Link className='discover_button' to='airports'><button className='discover_button'>Go</button></Link>
+                <Link className='discover_link' to='airports'><button className='discover_button'>Go</button></Link>
             </div>
         </div>
     </div>

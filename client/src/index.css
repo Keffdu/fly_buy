@@ -681,7 +681,7 @@ button {
   justify-content: center;
   justify-content: space-evenly;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   width: 100%;
 }
 
@@ -693,7 +693,10 @@ button {
 }
 .form {
   width: 450px;
+  align-content: center;
+  width: fit-content;
 }
+
 
 .account_div {
   width: 30vw;
@@ -730,7 +733,7 @@ button {
 }
 
 .user_input {
-  width: 15vw;
+  width: 16vw;
   margin-left: 10px;
   margin-right: 10px;
   text-align: center;
@@ -738,9 +741,9 @@ button {
 
 .user_image {
   max-width: 450px;
-  max-height: 400px;
+  max-height: 500px;
   min-width: 450px;
-  min-height: 400px;
+  min-height: 500px;
   margin-top: auto;
   margin-bottom: auto;
 }

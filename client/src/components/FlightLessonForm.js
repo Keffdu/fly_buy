@@ -3,7 +3,7 @@ import { useParams, useHistory} from 'react-router-dom';
 import { useState, useEffect, useContext  } from 'react';
 import { UserContext } from '../context/user';
 import Alert from '@mui/material/Alert';
-
+import emailjs from '@emailjs/browser';
 
 function FlightLessonForm() {
 
@@ -45,8 +45,6 @@ function FlightLessonForm() {
                 user_id: user.id,
                 aircraft_id: lessonData.id,
             }
-            // console.log(flightLesson)
-
             fetch('/flight_lessons', {
                 method: "POST",
                 headers: {
@@ -58,7 +56,7 @@ function FlightLessonForm() {
                     r.json().then((newLesson) => {
                         let updatedFlightLessons = [...user.flight_lessons, newLesson]
                         setUser({...user, flight_lessons: updatedFlightLessons})
-                        alert("Your flight has been successfully booked!")
+                        sendEmail(flightLesson)
                         history.push("/flights")})
                 } else {
                     r.json().then((err) => (setErrors(err.errors)))
@@ -73,6 +71,26 @@ function FlightLessonForm() {
 
         function cancelLesson() {
             history.push(`/airports/`)
+        }
+
+        function sendEmail(flightLesson) {
+            const emailObj = {
+                name: user.first_name,
+                email: user.email,
+                instructor_name: lessonData.instructor.full_name,
+                instructor_email: lessonData.instructor.email,
+                date: flightLesson.date,
+                start_time: flightLesson.start_time,
+                end_time: flightLesson.end_time,
+                airport: flightLesson.airport,
+            }
+            // console.log(emailObj)
+            emailjs.send('service_5ep9por', 'template_tt19dfs', emailObj, 'e9aNrREzusCnsVVlg')
+                .then((result) => {
+                    alert("Lesson scheduled, email confirmation sent");
+                }, (error) => {
+                    console.log(error.text);
+                });
         }
 
     if (!lessonData) {

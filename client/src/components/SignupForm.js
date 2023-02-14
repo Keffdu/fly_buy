@@ -7,6 +7,7 @@ import Input from 'react-phone-number-input/input'
 import Button from '@mui/material/Button'
 import FlightTakeoffSharpIcon from '@mui/icons-material/FlightTakeoffSharp';
 import { UserContext } from "../context/user";
+import { textAlign } from '@mui/system';
 
 
 function SignupForm() {
@@ -27,6 +28,7 @@ function SignupForm() {
         image: "",
         flight_hours: ""
     })
+
 
     function handleChange(e) {
         const name = e.target.name
@@ -69,12 +71,19 @@ function SignupForm() {
 
     const ageTextBox = {
         height: "25px",
-        width: "150px"
+        width: "150px",
+        textAlign: "center"
     }
 
     const textBox = {
         height: "25px",
-        width: "165px"
+        width: "200px",
+        textAlign: "center"
+    }
+
+    const centerLabel = {
+        textAlign: "center",
+
     }
 
 
@@ -90,14 +99,13 @@ function SignupForm() {
           </div>
               <div className='sign_up_password'>
                   <Form.Group className="mb-3" controlId="formBasicFirstName">
-                      <Form.Label>First Name: </Form.Label>
+                      <Form.Label >First Name: </Form.Label>
                       <Form.Control
                           onChange={handleChange}
                           value={userInfo.first_name}
                           style={textBox}
                           type="text"
-                          name="first_name"
-                          placeholder="First Name" />
+                          name="first_name"/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>
@@ -108,8 +116,7 @@ function SignupForm() {
                           value={userInfo.last_name}
                           style={textBox}
                           type="text"
-                          name="last_name"
-                          placeholder="Last Name" />
+                          name="last_name"/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>
@@ -120,8 +127,7 @@ function SignupForm() {
                           value={userInfo.username}
                           style={textBox}
                           type="text"
-                          name="username"
-                          placeholder="Username" />
+                          name="username"/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>
@@ -132,8 +138,7 @@ function SignupForm() {
                           value={userInfo.password}
                           style={textBox}
                           type="password"
-                          name="password"
-                          placeholder="Password" />
+                          name="password"/>
                   </Form.Group>
               </div>
                 <div className='sign_up_password'>
@@ -142,7 +147,6 @@ function SignupForm() {
                         <Form.Select
                             onChange={handleChange}
                             style={textBox}
-                            placeholder='Select Gender...'
                             name='gender'
                             value={userInfo.gender}
                         >
@@ -155,18 +159,13 @@ function SignupForm() {
               <div className='sign_up_password'>
                   <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
                       <Form.Label>Phone Number: </Form.Label>
-                      {/* <Form.Control
-                          onChange={handleChange}
-                          value={userInfo.phone_number}
-                          type="number"
-                          name="phone_number"
-                          placeholder="(111)111-1111" /> */}
                     <Input
                         country="US"
                         value={phone}
                         style={textBox}
                         name="phone_number"
-                        onChange={setPhone} />
+                        onChange={setPhone}
+                        />
                         </Form.Group>
               </div>
               <div className='sign_up_password'>
@@ -177,8 +176,7 @@ function SignupForm() {
                           value={userInfo.email}
                           style={textBox}
                           type="text"
-                          name="email"
-                          placeholder="email@email.com" />
+                          name="email"/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>
@@ -191,8 +189,7 @@ function SignupForm() {
                           style={ageTextBox}
                           name="age"
                           min={0}
-                          max={100}
-                          placeholder="" />
+                          max={100}/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>
@@ -205,8 +202,7 @@ function SignupForm() {
                           style={ageTextBox}
                           name="flight_hours"
                           min={0}
-                          max={100}
-                          placeholder="" />
+                          max={100}/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>

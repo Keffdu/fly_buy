@@ -57,6 +57,7 @@ function handleSubmit(e) {
                     <Form.Group className="mb-3" controlId="formBasicUsername">
                         <Form.Label>Username: </Form.Label>
                         <Form.Control 
+                        style={{textAlign: "center"}}
                         onChange={handleChange}
                         value={loginObj.username}
                         type="text" 
@@ -68,6 +69,7 @@ function handleSubmit(e) {
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password: </Form.Label>
                         <Form.Control 
+                        style={{textAlign: "center"}}
                         onChange={handleChange}
                         value={loginObj.password}
                         type="password" 

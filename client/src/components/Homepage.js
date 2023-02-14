@@ -13,7 +13,7 @@ function Homepage() {
     return (
     fl.completed === false)})
 
-//    console.log(upcomingFlights.length)
+   console.log(upcomingFlights.length)
 
   return (
     <div className='homepage'>
@@ -21,9 +21,10 @@ function Homepage() {
         <div className='upper_content'>
             <div className='content_div'>
                 <div  className='inner_content'>
-                    {/* ADD DIFFERENT RENDER IF THERE ARE NO SCHEDULED FLIGHTS */}
-                    <p>{user.first_name}, you have {upcomingFlights.length} upcoming flights booked.</p>
-                    <Link to='/flights'><button className='content_button'>View Flights</button></Link>
+                    {upcomingFlights.length > 0 ? <><p>{user.first_name}, you have {upcomingFlights.length} upcoming flights booked.</p>
+                    <Link to='/flights'><button className='content_button'>View Flights</button></Link></>
+                    : <><p>{user.first_name}, you currently have no flights  scheduled. Let's get you flying!</p>
+                    <Link to='/airports'><button className='content_button'>Schedule Flights</button></Link></>}
                 </div>
             </div>
             <div className='content_div'>

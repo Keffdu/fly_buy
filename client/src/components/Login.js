@@ -12,7 +12,7 @@ import { UserContext } from "../context/user";
 
 function Login(){
 
-    const { user, setUser } = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
 
     const[errors, setErrors] = useState(null)
     const[loginObj, setLoginObj] = useState({

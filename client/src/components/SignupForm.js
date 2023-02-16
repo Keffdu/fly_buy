@@ -13,7 +13,7 @@ function SignupForm() {
 
     const history = useHistory()
 
-    const { user, setUser } = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
     const [errors, setErrors] = useState(null)
     const [phone, setPhone] = useState()
     const [userInfo, setUserInfo] = useState({

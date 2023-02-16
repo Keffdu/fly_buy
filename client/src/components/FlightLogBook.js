@@ -12,7 +12,7 @@ function FlightLogBook() {
   
      const flightLessons = upcomingFlights.map((flight) => {
       return (
-        <FlightLessonCard 
+        <FlightLessonCard
           key={flight.id}
           flightLesson={flight}
         />
@@ -20,7 +20,7 @@ function FlightLogBook() {
      })
 
      //add render if there are no completed flights
-     
+
     return (
       <div className='airport_homepage'>
         <h1 className='homepage_title'>Flight Lessons</h1>

@@ -8,8 +8,8 @@ class User < ApplicationRecord
     validate :flight_time
 
     def flight_time
-        if self.flight_hours < 0
-            errors.add(:flight_hours, "must be greater than zero")
+        if self.flight_hours < 0 && self.flight_hours <= 40
+            errors.add(:flight_hours, "must be greater than zero and less than 40")
         end
     end
 end

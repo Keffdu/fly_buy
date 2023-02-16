@@ -144,6 +144,7 @@ function SignupForm() {
                             <option>Choose Your Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
+                            <option value="Other">Other</option>
                         </Form.Select>
                     </Form.Group>
                 </div>
@@ -193,7 +194,7 @@ function SignupForm() {
                           style={ageTextBox}
                           name="flight_hours"
                           min={0}
-                          max={100}/>
+                          max={40}/>
                   </Form.Group>
               </div>
               <div className='sign_up_password'>

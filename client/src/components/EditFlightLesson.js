@@ -34,7 +34,6 @@ function EditFlightLesson() {
         }).then((r) => {
             if (r.ok) {
                 r.json().then((updatedLesson) => {
-                    console.log(updatedLesson)
                     const updatedFlightLessons = user.flight_lessons.map((fl) => fl.id === flightLesson.id ? updatedLesson : fl)
                     const updatedUser = {...user, flight_lessons: updatedFlightLessons}
                     setUser(updatedUser)

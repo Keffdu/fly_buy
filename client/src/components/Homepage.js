@@ -13,8 +13,6 @@ function Homepage() {
     return (
     fl.completed === false)})
 
-   console.log(upcomingFlights.length)
-
   return (
     <div className='homepage'>
         <h1 className='homepage_title' >Welcome Back, {user.first_name}!</h1>

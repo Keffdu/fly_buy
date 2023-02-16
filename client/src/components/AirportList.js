@@ -22,18 +22,16 @@ function AirportList(){
             if (r.ok) {
                 r.json().then((airportData) => {
                     setAirports(airportData)});
-                } 
+                }
             });
         }, [])
 
-        console.log(airportsByState)
-
   return (
     <div className='airport_homepage'>
-        <h1 className='homepage_title'>Airports</h1>
+        <h1 className='homepage_title'>Browse Airports</h1>
         <div className='airport_dropdown'>
             <p>Select by State </p>
-            <select 
+            <select
                 onChange={(e) => setStateFilter(e.target.value)}
                 value={stateFilter}
                 className='dropdown'>

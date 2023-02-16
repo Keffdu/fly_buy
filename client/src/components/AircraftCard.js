@@ -1,21 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-function AircraftCard({ aircraft, airport, getData}) {
-
-
-    // console.log(aircraft)
-
-    // function handleClick(aircraft, airport) {
-    //     const flightLessonInfo = {
-    //         airport: airport.name,
-    //         // instructor: aircraft.instructor.full_name,
-
-    //     }
-    //     console.log(aircraft)
-    //     console.log(airport)
-    //     getData(flightLessonInfo)
-    // }
+function AircraftCard({ aircraft}) {
 
   return (
       <div className='plane_info'>

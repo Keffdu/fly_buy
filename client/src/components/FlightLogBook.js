@@ -5,12 +5,6 @@ import FlightLessonCard from './FlightLessonCard'
 
 function FlightLogBook() {
     const { user } = useContext(UserContext)
-    // const [currentLessons, setCurrentLessons] = useState([])
-  
-    
-    console.log(user)
-  
-    // setCurrentLessons(user.flight_lessons)
   
     const upcomingFlights = user.flight_lessons.filter((fl) => {
      return (
@@ -26,6 +20,7 @@ function FlightLogBook() {
      })
 
      //add render if there are no completed flights
+     
     return (
       <div className='airport_homepage'>
         <h1 className='homepage_title'>Flight Lessons</h1>

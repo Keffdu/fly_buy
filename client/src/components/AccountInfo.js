@@ -151,7 +151,7 @@ function AccountInfo() {
                     <input onChange={handleChange} className='user_input' type="text" name='image' value={userUpdate.image}/>
                 </div> : null}
                 <div className='flight_lesson_errors'>
-                    {errors ? errors.map((e) => 
+                    {errors ? errors.map((e) =>
                     <Alert style={{marginTop: "20px"}} key={e} severity="error" variant='filled'>{e}</Alert>) : null}
                 </div>
                 </form>

@@ -37,7 +37,6 @@ function EditFlightLesson() {
                     console.log(updatedLesson)
                     const updatedFlightLessons = user.flight_lessons.map((fl) => fl.id === flightLesson.id ? updatedLesson : fl)
                     const updatedUser = {...user, flight_lessons: updatedFlightLessons}
-                    // let updatedFlightLessons = [...user.flight_lessons, newLesson]
                     setUser(updatedUser)
                     alert("Your flight has been updated")
                     history.push("/flights")
@@ -65,7 +64,7 @@ function EditFlightLesson() {
             <h1 className='fl_title'>Edit Flight Lesson</h1>
         </div>
         <div className='flight_lesson_errors'>
-              {errors ? errors.map((e) => 
+              {errors ? errors.map((e) =>
                   <Alert style={{marginRight: "10px"}} key={e} severity="error" variant='filled'>{e}</Alert>) : null}
         </div>
         <div className='form_container'>
@@ -92,7 +91,7 @@ function EditFlightLesson() {
                     <div style={{paddingBottom: "5px"}}>
                         <label className='form_font'>Select Date: </label>
                     </div>
-                    <input 
+                    <input
                         type='date'
                         name='date'
                         onChange={handleChange}
@@ -103,7 +102,7 @@ function EditFlightLesson() {
                     <div style={{paddingBottom: "5px"}}>
                         <label className='form_font'>Start Time: </label>
                     </div>
-                    <input 
+                    <input
                         style={{width: "115px"}}
                         type='time'
                         min="08:00"

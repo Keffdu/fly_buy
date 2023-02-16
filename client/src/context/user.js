@@ -11,7 +11,7 @@ function UserProvider({ children }) {
           if (r.ok) {
             r.json().then((userInfo) => {
               setUser(userInfo)});
-          } 
+          }
         });
       }, [])
 

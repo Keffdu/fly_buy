@@ -1,5 +1,4 @@
 import React from 'react'
-import AirportDetails from './AirportDetails'
 import { Link } from 'react-router-dom'
 
 

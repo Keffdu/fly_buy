@@ -9,16 +9,12 @@ function AirportDetails() {
     const { id } = useParams()
     const [airportDetails, setAirportDetails] = useState(null)
 
-    // const instructors = airportDetails.instructors
-
     useEffect(() => {
         fetch(`/airports/${id}`)
         .then((r) => r.json()
         .then((airportData) => {
             setAirportDetails(airportData)}))
         }, [])
-
-        // console.log(airportDetails)
 
     if (!airportDetails) {
         return(

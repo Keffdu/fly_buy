@@ -8,8 +8,6 @@ function FlightLessonCard({ flightLesson }) {
     const { user , setUser } = useContext(UserContext)
     const [ errors, setErrors ] = useState([])
 
-    // console.log(flightLesson)
-
 function cancelFlight() {
         fetch(`/flight_lessons/${flightLesson.id}`, {
         method: "DELETE",
@@ -28,7 +26,6 @@ function completeFlight() {
         const updatedFlight = {
             completed: true
         }
-        // console.log(updatedFlight)
         fetch(`/flight_lessons/${flightLesson.id}`, {
             method: "PATCH",
             headers: {
@@ -41,11 +38,8 @@ function completeFlight() {
                     console.log(updatedLesson)
                     const updatedFlightLessons = user.flight_lessons.map((fl) => fl.id === flightLesson.id ? updatedLesson : fl)
                     const updatedUser = {...user, flight_lessons: updatedFlightLessons}
-                    // let updatedFlightLessons = [...user.flight_lessons, newLesson]
                     updateUserHours()
                     setUser(updatedUser)
-                    // alert("Your flight has been updated")
-                    // history.push("/flights")
                 })
             } else {
                 r.json().then((err) => (setErrors(err.errors)))
@@ -54,11 +48,9 @@ function completeFlight() {
 }
 
         function updateUserHours() {
-            // console.log("updating user")
         const updatedUser= {
             flight_hours: user.flight_hours + (parseInt(flightLesson.end_time) - parseInt(flightLesson.start_time))
         }
-        // console.log(updatedUser)
         fetch(`/users/${user.id}`, {
             method: "PATCH",
             headers: {
@@ -69,9 +61,6 @@ function completeFlight() {
             if (r.ok) {
                 r.json().then((updatedUserHours) => {
                     console.log(updatedUserHours)
-                    // const  = user.flight_lessons.map((fl) => fl.id === flightLesson.id ? updatedLesson : fl)
-                    // const updatedFlightHours = {...user, flight_hours: updatedHours}
-                    // let updatedFlightLessons = [...user.flight_lessons, newLesson]
                     setUser(updatedUserHours)
                 })
             } else {

@@ -23,7 +23,6 @@
   text-align: center;
   display: flex;
   justify-content: center;
-
 }
 
 .login_container {
@@ -195,7 +194,8 @@ a {
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 100px;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
+  font-family: AIRPLANE;
 }
 
 .homepage {
@@ -330,8 +330,12 @@ p {
 .dropdown {
   margin-top: 10px;
   width: 200px;
+  text-align: center;
+  height: 30px;
   margin-left: auto;
-
+  background-color: #76809D;
+  border-radius: 8px;
+  font-size: 1.2rem;
 }
 
 .airports {
@@ -760,4 +764,15 @@ button {
 
 a:hover {
   color: #76809D;
+}
+
+button:hover {
+  color: #98A3B4;
+}
+
+/* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/mechanics/mec-1/mec44.cur), auto !important;} /* End https://www.cursors-4u.com */
+
+@font-face {
+  font-family: airplane;
+  src: url(../public/AirAmericana-Aggg.ttf);
 }

@@ -1,17 +1,11 @@
 import React from 'react'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { UserContext } from '../context/user'
 import FlightLessonCard from './FlightLessonCard'
 
 function FlightLessonList() {
 
   const { user } = useContext(UserContext)
-  // const [currentLessons, setCurrentLessons] = useState([])
-
-  
-  console.log(user)
-
-  // setCurrentLessons(user.flight_lessons)
 
   const upcomingFlights = user.flight_lessons.filter((fl) => {
    return (
@@ -19,10 +13,9 @@ function FlightLessonList() {
 
    const flightLessons = upcomingFlights.map((flight) => {
     return (
-      <FlightLessonCard 
+      <FlightLessonCard
         key={flight.id}
         flightLesson={flight}
-        
       />
     )
    })

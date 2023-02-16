@@ -1,5 +1,5 @@
 // import Yogi from './Yogi.jpeg'
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "./context/user";
 import FlightInfoContainer from "./components/FlightInfoContainer";
 import Login from "./components/Login";
@@ -22,10 +22,7 @@ function App() {
  
 
   const { user } = useContext(UserContext);
-
-// console.log(user)
-// console.log(errors)
-
+  
   if (user) {
     return (
       <div className="homepage">
@@ -35,7 +32,7 @@ function App() {
           </div>
           <Switch>
             <Route exact path='/'>
-              <Homepage />
+            <Homepage />
             </Route>
             <Route exact path='/airports'>
               <AirportList

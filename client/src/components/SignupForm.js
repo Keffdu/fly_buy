@@ -7,7 +7,6 @@ import Input from 'react-phone-number-input/input'
 import Button from '@mui/material/Button'
 import FlightTakeoffSharpIcon from '@mui/icons-material/FlightTakeoffSharp';
 import { UserContext } from "../context/user";
-import { textAlign } from '@mui/system';
 
 
 function SignupForm() {
@@ -36,7 +35,6 @@ function SignupForm() {
         setUserInfo({ ...userInfo, [name]: value })
     }
 
-    // console.log(phone)
     function handleSubmit(e) {
         e.preventDefault()
         const userObj = {
@@ -81,20 +79,13 @@ function SignupForm() {
         textAlign: "center"
     }
 
-    const centerLabel = {
-        textAlign: "center",
-
-    }
-
-
-
     return (
       <div className='login_page'>
 
           <h1 className='login_title'>Sign Up</h1>
           <Form className='sign_up_container' onSubmit={handleSubmit}>
           <div className='sign_up_errors'>
-              {errors ? errors.map((e) => 
+              {errors ? errors.map((e) =>
                   <Alert severity="error" >{e}</Alert>) : null}
           </div>
               <div className='sign_up_password'>
@@ -217,113 +208,12 @@ function SignupForm() {
                           placeholder="Image URL" />
                   </Form.Group>
               </div>
-{/* <Container style={{ width: '18rem' }}>
-      {errors.map((e) => 
-        <Alert variant='danger' key={e}>{e}</Alert>)}
-         <Form onSubmit={handleSubmit}>     
-             <Form.Group className="mb-3">
-                 <Form.Label>Username: </Form.Label>
-            <Form.Control 
-                onChange={handleChange}
-                placeholder="Ex: johndoe.." 
-                type="text" 
-                name="user_name" 
-                value={userInfo.user_name}
-            />            
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Password: </Form.Label>
-            <Form.Control 
-                onChange={handleChange} 
-                type="password"
-                id="inputPassword5"
-                // aria-describedby="passwordHelpBlock" 
-                name="password" 
-                value={userInfo.password}
-            />            
-            <Form.Text id="passwordHelpBlock" muted>
-                Your password must be 8-20 characters long, contain letters and numbers,
-                and must not contain spaces, special characters, or emoji.
-            </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3">
-                <Form.Label>Confirm Password: </Form.Label>
-            <Form.Control 
-                onChange={handleChange} 
-                type="password"
-                // id="inputPassword5"
-                aria-describedby="passwordHelpBlock" 
-                name="password_confirmation" 
-                value={userInfo.password_confirmation}
-            />            
-            <Form.Text id="passwordHelpBlock" muted>
-                Please confirm your password
-            </Form.Text>
-            </Form.Group>
-            <Form.Group className="mb-3" >
-                <Form.Label>Name</Form.Label>
-            <Form.Control 
-                onChange={handleChange} 
-                placeholder="Ex: John Doe"
-                type="text" 
-                name="name"
-                value={userInfo.name} 
-            />            
-            </Form.Group>
-            <Form.Group className="mb-3">
-            <Form.Label>Phone Number</Form.Label>
-            <Form.Control 
-                onChange={handleChange} 
-                name="phone_number" 
-                placeholder="123456789" 
-                value={userInfo.phone_number}
-                />
-            </Form.Group>
-            
-            <Form.Group className="mb-3">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control 
-            onChange={handleChange} 
-            name="email" 
-            type="email" 
-            placeholder="name@example.com"
-            value={userInfo.email}
-             />
-            
-            </Form.Group> */}
-
-            {/* <Form.Group className="mb-3">
-            <Form.Label>Notes</Form.Label>
-            <Form.Control 
-            value={userInfo.notes} 
-            as="textarea" rows={3} 
-            onChange={handleChange} 
-            name="notes"/>
-            </Form.Group> */}
-
-            {/* <Form.Group className="mb-3">
-                <Form.Label> Upload a Photo</Form.Label>
-                <Form.Control 
-                placeholder='Insert URL'
-                    type="text"
-                    onChange={handleChange}
-                    name="image"
-                    value={userInfo.image}
-                />           
-            </Form.Group>
-            <div className="mb-3 d-grid gap-2">
-        <Button type="submit" size="lg"> Signup </Button>
-            </div> */}
-            
               <div className='login_button' >
                   <Button variant="contained" color={errors ? "error" : "primary"} type="submit" startIcon={<FlightTakeoffSharpIcon fontSize="small"/>}>
                       Take off
                   </Button>
               </div>
-        {/* </Form>
-    </Container> */}
         </Form >
-
     </div >
   )
 }

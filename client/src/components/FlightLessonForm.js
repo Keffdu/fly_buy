@@ -84,7 +84,6 @@ function FlightLessonForm() {
                 end_time: flightLesson.end_time,
                 airport: flightLesson.airport,
             }
-            // console.log(emailObj)
             emailjs.send('service_5ep9por', 'template_tt19dfs', emailObj, 'e9aNrREzusCnsVVlg')
                 .then((result) => {
                     alert("Lesson scheduled, email confirmation sent");
@@ -107,7 +106,7 @@ function FlightLessonForm() {
             <h1 className='fl_title'>Flight Lesson</h1>
         </div>
         <div className='flight_lesson_errors'>
-              {errors ? errors.map((e) => 
+              {errors ? errors.map((e) =>
                   <Alert style={{marginRight: "10px"}} key={e} severity="error" variant='filled'>{e}</Alert>) : null}
         </div>
         <div className='form_container'>
@@ -145,7 +144,7 @@ function FlightLessonForm() {
                     <div style={{paddingBottom: "5px"}}>
                         <label className='form_font'>Start Time: </label>
                     </div>
-                    <input 
+                    <input
                         style={{width: "115px"}}
                         type='time'
                         min="08:00"

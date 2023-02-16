@@ -14,7 +14,7 @@ return (
         <h1 className='instructor_details'>Flight Hours: {instructor.flight_hours}</h1>
         <h1 className='instructor_details'>Experience Level: {instructor.experience_level}</h1>
         <div className='icons'>
-            <EmailIcon style={{paddingRight: "5px"}}/> 
+            <EmailIcon style={{paddingRight: "5px"}}/>
             <h1 className='instructor_details'>{instructor.email}</h1>
         </div>
         <div className='icons'>
